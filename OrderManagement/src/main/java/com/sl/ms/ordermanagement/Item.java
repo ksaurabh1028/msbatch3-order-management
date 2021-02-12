@@ -19,6 +19,23 @@ public class Item {
   private Double amount;
   
 /**
+ * @param id
+ * @param name
+ * @param quantity
+ * @param price
+ * @param amount
+ */
+public Item(long id, String name, Integer quantity, Double price, Double amount) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.quantity = quantity;
+	this.price = price;
+	this.amount = amount;
+}
+
+public Item() {}
+/**
  * @return the id
  */
 public long getId() {

@@ -24,6 +24,21 @@ public class Order {
   @JoinColumn(name="order_id")
   Set<Item> items;
 /**
+ * @param id
+ * @param name
+ * @param total_amount
+ * @param items
+ */
+public Order(Long id, String name, Double total_amount, Set<Item> items) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.total_amount = total_amount;
+	this.items = items;
+}
+
+public Order() {}
+/**
  * @return the id
  */
 public long getId() {

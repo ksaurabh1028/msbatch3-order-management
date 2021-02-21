@@ -21,13 +21,17 @@ node {
 	    }  
 	  
 	    stage('Build Project') {
-	      // build project via maven
-	      sh "'${mvnHome}/bin/mvn' clean install"
+	      dir("OrderManagement") {
+	        // build project via maven
+	        sh "'${mvnHome}/bin/mvn' clean install"
+	      }
 	    }
 			
 	    stage('Build Docker Image') {
-	      // build docker image
-	      dockerImage = docker.build("saurabh1028/order-management:${env.BUILD_NUMBER}")
+	      dir("OrderManagement") {
+	        // build docker image
+	        dockerImage = docker.build("saurabh1028/order-management:${env.BUILD_NUMBER}")
+	      }
 	    }
 	   
 	    stage('Deploy Docker Image'){
